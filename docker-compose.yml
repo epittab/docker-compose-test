@@ -1,0 +1,16 @@
+# specify version of docker compose 
+version: '3'
+# initialize section for building the containers
+services:
+# first service (container) name, used to connect
+  redis-server:
+# it is built using the base image, so specify image
+    image: 'redis'
+# second service (container) name, used to connect
+  node-app:
+# it is built using build command, specify path
+    build: .
+# map port with ports section
+    ports:
+# dash signfies array then map local to container
+      - "4080:8080"
